@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DFS Solver</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #501919;
+            font-family: sans-serif;
+            color: azure;
+            text-align: center;
+        }
+        form {
+            margin: 20px auto;
+            width: 300px;
+            border-radius: 10px;
+            background-color: #d48080;
+            padding: 20px;
+            color: rgb(42, 5, 5);
+            text-align: left;
+        }
+        input {
+            display: block;
+            width: 100%;
+            padding: 5px;
+            border: none;
+            border-bottom: 1px solid #000;
+            background-color: transparent;
+            margin-bottom: 10px;
+            outline: none;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #672323;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        .caja {
+            margin: 20px auto;
+            width: 300px;
+            border: 1px solid #fff;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: #5e2c2c;
+        }
+        .caja ul {
+            list-style: none;
+            padding: 0;
+        }
+        .caja li {
+            background-color: #602626;
+            padding: 5px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="/solve" method="post">
+        <h1>DFS Solver</h1>
+        <label for="estado_inicial">Estado Inicial (separado por comas):</label>
+        <input type="text" id="estado_inicial" name="estado_inicial" required>
+
+        <label for="solucion">Solución (separado por comas):</label>
+        <input type="text" id="solucion" name="solucion" required>
+
+        <button type="submit">Resolver</button>
+    </form>
+
+    {% if resultado %}
+    <div class="caja">
+        <h2>Resultado:</h2>
+        <ul>
+            {% for estado in resultado %}
+                <li>{{ estado }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+</body>
+</html>
